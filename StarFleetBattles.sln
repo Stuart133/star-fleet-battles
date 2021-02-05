@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarFleetBattles.Game", "St
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarFleetBattles.Graphics", "StarFleetBattles.Graphics\StarFleetBattles.Graphics.csproj", "{2F4DA7D1-81EE-4B1C-AEFB-C5334166DD0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarFleetBattles.Desktop", "StarFleetBattles.Desktop\StarFleetBattles.Desktop.csproj", "{A51FB50D-400F-4835-B938-16EBCEB06935}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2F4DA7D1-81EE-4B1C-AEFB-C5334166DD0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F4DA7D1-81EE-4B1C-AEFB-C5334166DD0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F4DA7D1-81EE-4B1C-AEFB-C5334166DD0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A51FB50D-400F-4835-B938-16EBCEB06935}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A51FB50D-400F-4835-B938-16EBCEB06935}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A51FB50D-400F-4835-B938-16EBCEB06935}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A51FB50D-400F-4835-B938-16EBCEB06935}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

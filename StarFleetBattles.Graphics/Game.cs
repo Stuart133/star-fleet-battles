@@ -3,11 +3,14 @@ using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
 using OpenTK.Windowing.GraphicsLibraryFramework;
+using StarFleetBattles.Graphics.Shaders;
 
 namespace StarFleetBattles.Graphics
 {
     public class Game : GameWindow
     { 
+        private Shader Shader { get; set; }
+
         public Game(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings) 
             : base(gameWindowSettings, nativeWindowSettings)
         {
@@ -29,6 +32,14 @@ namespace StarFleetBattles.Graphics
             VertexBufferObject = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, VertexBufferObject);
             GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);
+
+            // Create shader program
+            Shader = new Shader(@"shaders\shader.vert", @"shaders\shader.frag");
+            Shader.Use();
+
+            // Load Vertices
+            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
+            GL.EnableVertexAttribArray(0);
 
             base.OnLoad();
         }
@@ -53,10 +64,17 @@ namespace StarFleetBattles.Graphics
             base.OnUpdateFrame(args);
         }
 
+        protected override void OnResize(ResizeEventArgs e)
+        {
+            GL.Viewport(0, 0, Size.X, Size.Y);
+            base.OnResize(e);
+        }
+
         protected override void OnUnload()
         {
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
             GL.DeleteBuffer(VertexBufferObject);
+            Shader.Dispose();
             base.OnUnload();
         }
     }
