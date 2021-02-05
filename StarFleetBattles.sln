@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarFleetBattles.CLI", "StarFleetBattles.Console\StarFleetBattles.CLI.csproj", "{9399DED0-1ED9-4C78-92F2-476B086E615E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarFleetBattles.Game", "StarFleetBattles.Game\StarFleetBattles.Game.csproj", "{2A8A1837-9F04-434A-B62B-518528980C9B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarFleetBattles.Graphics", "StarFleetBattles.Graphics\StarFleetBattles.Graphics.csproj", "{2F4DA7D1-81EE-4B1C-AEFB-C5334166DD0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9399DED0-1ED9-4C78-92F2-476B086E615E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9399DED0-1ED9-4C78-92F2-476B086E615E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9399DED0-1ED9-4C78-92F2-476B086E615E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9399DED0-1ED9-4C78-92F2-476B086E615E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2A8A1837-9F04-434A-B62B-518528980C9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2A8A1837-9F04-434A-B62B-518528980C9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A8A1837-9F04-434A-B62B-518528980C9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A8A1837-9F04-434A-B62B-518528980C9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F4DA7D1-81EE-4B1C-AEFB-C5334166DD0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F4DA7D1-81EE-4B1C-AEFB-C5334166DD0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F4DA7D1-81EE-4B1C-AEFB-C5334166DD0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F4DA7D1-81EE-4B1C-AEFB-C5334166DD0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
