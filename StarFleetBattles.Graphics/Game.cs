@@ -21,25 +21,31 @@ namespace StarFleetBattles.Graphics
              0.5f, -0.5f, 0.0f, //Bottom-right vertex
              0.0f,  0.5f, 0.0f  //Top vertex
         };
+
+        int VertexArrayObject;
         int VertexBufferObject;
 
         protected override void OnLoad()
         {
-            // Set background to black
-            GL.ClearColor(new Color4 { R = 0, G = 0, B = 0 });
+            // Set background to white
+            GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
             // Create and bind the vertex buffer
             VertexBufferObject = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, VertexBufferObject);
             GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);
 
+            // Generate & bind VAO
+            VertexArrayObject = GL.GenVertexArray();
+            GL.BindVertexArray(VertexArrayObject);
+
+            // Configure VAO
+            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
+            GL.EnableVertexAttribArray(0);
+
             // Create shader program
             Shader = new Shader(@"shaders\shader.vert", @"shaders\shader.frag");
             Shader.Use();
-
-            // Load Vertices
-            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
-            GL.EnableVertexAttribArray(0);
 
             base.OnLoad();
         }
@@ -48,7 +54,11 @@ namespace StarFleetBattles.Graphics
         {
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
-            Context.SwapBuffers();
+            Shader.Use();
+
+            GL.DrawArrays(PrimitiveType.Triangles, 0, 3);
+
+            SwapBuffers();
             base.OnRenderFrame(args);
         }
 
