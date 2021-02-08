@@ -19,24 +19,13 @@ namespace StarFleetBattles.Graphics.Shaders
             // Load shaders
             VertexShader = GL.CreateShader(ShaderType.VertexShader);
             FragmentShader = GL.CreateShader(ShaderType.FragmentShader);
+
             GL.ShaderSource(VertexShader, File.ReadAllText(vertexPath, Encoding.UTF8));
             GL.ShaderSource(FragmentShader, File.ReadAllText(fragmentPath, Encoding.UTF8));
 
             // Compile shaders
-            GL.CompileShader(VertexShader);
-            GL.CompileShader(FragmentShader);
-
-            // Check for compilation errors
-            var infoLog = GL.GetShaderInfoLog(VertexShader);
-            if (string.IsNullOrEmpty(infoLog))
-            {
-                Console.WriteLine(infoLog);
-            }
-            infoLog = GL.GetShaderInfoLog(FragmentShader);
-            if (string.IsNullOrEmpty(infoLog))
-            {
-                Console.WriteLine(infoLog);
-            }
+            CompileShader(VertexShader);
+            CompileShader(FragmentShader);
 
             // Link shaders
             Handle = GL.CreateProgram();
@@ -59,6 +48,18 @@ namespace StarFleetBattles.Graphics.Shaders
             }
 
             GL.UseProgram(Handle);
+        }
+
+        private void CompileShader(int shaderHandle)
+        {
+            GL.CompileShader(shaderHandle);
+
+            // Check for errors
+            var infoLog = GL.GetShaderInfoLog(VertexShader);
+            if (!string.IsNullOrEmpty(infoLog))
+            {
+                Console.WriteLine(infoLog);
+            }
         }
 
         public void Dispose()
